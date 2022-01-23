@@ -1,5 +1,5 @@
 from notion_database.database import Database
-
+import re
 class BaseNotionModel:
     def parse_start_date_end_date_field(self, prop, name):
         return [prop['date']['start'], prop['date']['end']]
@@ -58,4 +58,5 @@ class BaseNotionModel:
 
     def parse_result(self, properties):
         for p in properties:        
-            setattr(self, p.lower().replace(' ','_'), self.parse_field(properties[p], p ))
+            setattr(self, re.sub("[^0-9a-zA-Z]+", "", p).lower(), self.parse_field(properties[p], p ))
+

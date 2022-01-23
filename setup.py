@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
 	install_requires=[
-        'notion-database==20210513.4',
+        'notion-database==20210816.4',
         'python-dotenv==0.17.1'
     ]
 )
